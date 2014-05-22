@@ -16,11 +16,6 @@ type Config struct {
 	Reporters []*ReporterConfig
 }
 
-type ReporterConfig struct {
-	Service string
-	Key     string
-}
-
 func init() {
 	config = &Config{}
 	configFile := "test_config.json"

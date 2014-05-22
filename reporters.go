@@ -16,6 +16,11 @@ type Reporter interface {
 	Report(*Set)
 }
 
+type ReporterConfig struct {
+	Service string
+	Key     string
+}
+
 func NewStdoutReporter() *StdoutReporter {
 	r := &StdoutReporter{}
 	return r
@@ -44,6 +49,7 @@ type StathatReporter struct {
 
 func (r *StathatReporter) Report(set *Set) {
 	log.Println("Posting to stathat")
+	golog.Infoln("POSTING TO STAT")
 	values := url.Values{}
 	values.Set("count", strconv.FormatInt(set.Total(), 10))
 	values.Set("stat", fmt.Sprintf("%v %v", r.Prefix, set.Name))
