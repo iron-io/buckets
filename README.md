@@ -10,7 +10,7 @@ bm := buckets.New()
 bm.AddSet("set1")
 bm.AddSet("set2")
 
-# Then whenever an event happens that you want to record:
+// Then whenever an event happens that you want to record:
 bm.Inc(&DefaultOccurrence{"set2", time.Now()})
 // Occurence can be custom, just needs to adhere to [Occurrence interface](https://github.com/iron-io/buckets/blob/master/buckets.go#L155) 
 ```
